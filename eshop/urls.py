@@ -17,9 +17,12 @@ from django.contrib import admin
 from django.urls import path, include
 
 from users.views import register
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('users/', include("users.urls")),
+    path('orders/', include("orders.urls")),
+    path('products/', include("products.urls")),
     path('register/', register, name="register"),
     path('', include("django.contrib.auth.urls"))
 ]

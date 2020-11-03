@@ -10,3 +10,4 @@ class User(BaseUser):
 
     class Meta:
         db_table = "users"
+        ordering = ['username']

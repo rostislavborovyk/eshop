@@ -1,0 +1,27 @@
+.nav {
+  width: 100%;
+}
+.nav .nav__container {
+  width: 100%;
+  display: flex;
+}
+.nav .nav__container ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #555;
+  display: flex;
+}
+.nav .nav__container ul li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 16px;
+  text-decoration: none;
+}
+.nav .nav__container ul#nav__left {
+  flex: 1;
+}
+
+/*# sourceMappingURL=base.css.map */
