@@ -17,10 +17,10 @@ def register(request):
 
 
 def users(request):
-    # print(request.user.is_authenticated)
-    # if request.user.is_authenticated:
-    #     current_user = User.objects.get(pk=request.user.pk)
-    #     print(current_user)
-    #     print(current_user.gender)
-    #     print(type(current_user))
-    return render(request, "users/users.html")
+    # excluding super user
+    users = User.objects.exclude(is_staff=1).all()
+
+    context = {
+        "users": users
+    }
+    return render(request, "users/users.html", context)

@@ -1,7 +1,26 @@
 {% extends "base.html" %}
 
-{% block title%}Users page{% endblock %}
+{% block title %}Users page{% endblock %}
 
-{% block content%}
-<div>Users page</div>
+{% block content %}
+    <div class="container">
+        <div class="container__list">
+            <table class="table table-bordered">
+                <thead>
+                <tr>
+                    <th scope="col">Username</th>
+                    <th scope="col">Email</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for user in users %}
+                    <tr>
+                        <td>{{ user.username }}</td>
+                        <td>{{ user.email }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
 {% endblock %}

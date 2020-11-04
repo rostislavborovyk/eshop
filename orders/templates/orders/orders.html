@@ -1,7 +1,27 @@
 {% extends "base.html" %}
 
-{% block title%}Orders page{% endblock %}
+{% block title %}Orders page{% endblock %}
 
-{% block content%}
-<div>Orders page</div>
-{% endblock %}
+{% block content %}
+    <div class="container">
+        <div class="container__list">
+            <table class="table table-bordered">
+                <thead>
+                <tr>
+                    <th scope="col">User</th>
+                    <th scope="col">Products</th>
+                    <th scope="col">Price</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for order in orders %}
+                    <tr>
+                        <td>{{ order.username }}</td>
+                        <td>{{ order.products_names }}</td>
+                        <td>{{ order.order_price }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>{% endblock %}

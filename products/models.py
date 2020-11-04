@@ -9,4 +9,4 @@ class Product(models.Model):
 
     class Meta:
         db_table = "products"
-        ordering = ['price']
+        ordering = ['-price']

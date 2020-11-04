@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title %}My orders{% endblock %}
+
+{% block content %}
+    {% if user.is_authenticated %}
+        <div class="container">
+            <div class="container__list">
+                <table class="table table-bordered">
+                    <thead>
+                    <tr>
+                        <th scope="col">Products</th>
+                        <th scope="col">Price</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for order in orders %}
+                        <tr>
+                            <td>{{ order.products_names }}</td>
+                            <td>{{ order.order_price }}</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    {% else %}
+        <div class="container">
+            <h1>Log in to see your information</h1>
+        </div>
+    {% endif %}
+{% endblock %}
