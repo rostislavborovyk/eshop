@@ -15,7 +15,7 @@
 pip install -r requirements.txt
 
 # sets up postgres, zookeeper and kafka
-sudo docker-compose up -d4
+sudo docker-compose up -d
 
 python manage.py migrate
 python manage.py runserver
