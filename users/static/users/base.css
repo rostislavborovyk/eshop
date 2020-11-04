@@ -35,8 +35,12 @@
   margin-top: 50px;
 }
 
-.container h1 {
+.container {
   text-align: center;
+}
+
+.product .product__inner-container {
+  padding: 50px;
 }
 
 /*# sourceMappingURL=base.css.map */

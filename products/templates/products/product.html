@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title %}Product page{% endblock %}
+
+{% block content %}
+    <div class="container product">
+        <div class="product__inner-container">
+            <h1>Product page</h1>
+            <h2>Name: {{ product.name }}</h2>
+            <h2>Price: {{ product.price }}</h2>
+        </div>
+        <div class="product__inner-container">
+            <h1>Specifications</h1>
+            <h2>Type: {{ product.attributes.type }}</h2>
+            <h2>Processor: {{ product.attributes.processor }}</h2>
+        </div>
+    </div>
+{% endblock %}

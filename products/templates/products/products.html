@@ -17,7 +17,7 @@
                 <tbody>
                 {% for product in products %}
                     <tr>
-                        <td>{{ product.name }}</td>
+                        <td><a href="/products/{{ product.pk }}">{{ product.name }}</a></td>
                         <td>{{ product.price }}</td>
                         <td>{{ product.attributes.type }}</td>
                         <td>{{ product.attributes.processor }}</td>
