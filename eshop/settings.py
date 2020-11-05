@@ -53,6 +53,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'main.middleware.ActivityTrackingMiddleware'
 ]
 
 ROOT_URLCONF = 'eshop.urls'
@@ -141,3 +142,6 @@ LOGIN_REDIRECT_URL = "/users"
 LOGOUT_REDIRECT_URL = "/users"
 
 KAFKA_SERVERS = os.getenv('KAFKA_SERVERS', '0.0.0.0:9092')
+
+# REDIS_PAGE_TRACKING_EXPIRATION = 86400
+REDIS_PAGE_TRACKING_LIST_NAME = "visited_urls"

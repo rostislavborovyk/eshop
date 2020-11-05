@@ -1,7 +1,12 @@
+"""
+Deprecated, activity tracking via middleware with redis
+"""
+
 from time import sleep
 
 from kafka import KafkaProducer
 from django.conf import settings
+
 # from eshop import settings as my_settings
 
 # settings.configure(default_settings=my_settings)

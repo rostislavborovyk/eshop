@@ -1,3 +1,7 @@
+"""
+Deprecated, activity tracking via middleware with redis
+"""
+
 from django.conf import settings
 from eshop import settings as my_settings
 from kafka import KafkaConsumer
