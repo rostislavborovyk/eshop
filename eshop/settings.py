@@ -141,9 +141,3 @@ LOGIN_REDIRECT_URL = "/users"
 LOGOUT_REDIRECT_URL = "/users"
 
 KAFKA_SERVERS = os.getenv('KAFKA_SERVERS', '0.0.0.0:9092')
-
-# proper way to specify model used for authentication
-# AUTH_USER_MODEL = 'users.User'
-
-
-
