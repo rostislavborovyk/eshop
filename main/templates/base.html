@@ -16,17 +16,19 @@
     <div class="nav__container">
         <ul id="nav__left">
             <li>
-                <a href="/products" {% if request.path == "/products/" %} class="active"{% endif %}>Products</a>
+                <a href="/products" {% if request.path == "/products/" %} class="current"{% endif %}>Products</a>
             </li>
             <li>
-                <a href="/users" {% if request.path == "/users/" %} class="active"{% endif %}>Users</a>
+                <a href="/users" {% if request.path == "/users/" %} class="current"{% endif %}>Users</a>
             </li>
             <li>
-                <a href="/orders" {% if request.path == "/orders/" %} class="active"{% endif %}>Orders</a>
+                <a href="/orders" {% if request.path == "/orders/" %} class="current"{% endif %}>Orders</a>
             </li>
-            <li>
-                <a href="/orders/my" {% if request.path == "/orders/my/" %} class="active"{% endif %}>My orders</a>
-            </li>
+            {% if user.is_authenticated %}
+                <li>
+                    <a href="/orders/cart" {% if request.path == "/orders/cart/" %} class="current"{% endif %}>Cart</a>
+                </li>
+            {% endif %}
         </ul>
         <ul id="nav__right">
             {% if user.is_authenticated %}

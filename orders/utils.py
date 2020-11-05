@@ -1,4 +1,5 @@
 from collections import namedtuple
+from decimal import Decimal
 from typing import List
 
 from orders.models import Order
@@ -41,3 +42,7 @@ def _get_orders_of_user(user) -> List[PersonalOrders]:
         ))
 
     return res
+
+
+def get_total_cart_price(products):
+    return sum(map(lambda x: Decimal(x.price), products))

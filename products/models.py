@@ -11,3 +11,4 @@ class Product(models.Model):
         db_table = "products"
         # -price for descending ordering
         ordering = ['-price']
+
