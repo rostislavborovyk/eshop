@@ -8,8 +8,10 @@ from .services.db_services import add_product_to_cart, get_products_with_additio
 
 def products(request):
     # products = get_all_products()
-    products = get_products_with_additional_data(request.user.id)
-
+    if request.user.is_authenticated:
+        products = get_products_with_additional_data(request.user.id)
+    else:
+        products = get_all_products()
     context = {
         "products": products
     }

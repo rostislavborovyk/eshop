@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}Bought products{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="container__list">
+            <table class="table table-bordered">
+                <thead>
+                <tr>
+                    <th scope="col">User</th>
+                    <th scope="col">Bought products</th>
+                    <th scope="col">Total price</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for order in orders %}
+                    <tr>
+                        <td>{{ order.username }}</td>
+                        <td>{{ order.products }}</td>
+                        <td>{{ order.price }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>{% endblock %}

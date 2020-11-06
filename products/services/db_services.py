@@ -1,6 +1,7 @@
 from collections import namedtuple
+from typing import List
 
-from .mongo_services import insert_data_to_mongo, get_products_from_cart
+from .mongo_services import insert_data_to_mongo_cart, get_products_from_cart
 from ..models import Product
 from django.core import serializers
 from django.shortcuts import get_object_or_404
@@ -16,16 +17,12 @@ def add_product_to_cart(user, product) -> None:
 
     # converting decimal field into str manually
     serialized["fields"]["price"] = str(serialized["fields"]["price"])
-    serialized["user_id"] = user.id
-    
-    insert_data_to_mongo(serialized)
+    # serialized["user_id"] = user.id
+    print(serialized)
+    insert_data_to_mongo_cart(serialized, user.id)
 
 
-def get_all_products():
-    return Product.objects.all()
-
-
-def _make_product_namedtuple(product: Product, is_in_cart) -> ProductWithAdditionalData:
+def _make_product_namedtuple(product: Product, is_in_cart=False) -> ProductWithAdditionalData:
     return ProductWithAdditionalData(
         id=product.id,
         name=product.name,
@@ -34,6 +31,13 @@ def _make_product_namedtuple(product: Product, is_in_cart) -> ProductWithAdditio
         processor=product.attributes["processor"],
         is_in_cart=is_in_cart
     )
+
+
+def get_all_products() -> List[ProductWithAdditionalData]:
+    return [
+        _make_product_namedtuple(product)
+        for product in Product.objects.all()
+    ]
 
 
 def get_products_with_additional_data(user_id):

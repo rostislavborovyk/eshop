@@ -34,6 +34,7 @@ _kafka_consumer = KafkaConsumer(
 )
 
 if __name__ == '__main__':
+    print("====== Started kafka activity tracker =======")
     products_visits_cache = []
     count = 0
     while True:

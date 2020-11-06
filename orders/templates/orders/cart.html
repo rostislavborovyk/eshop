@@ -17,13 +17,19 @@
                     <tbody>
                     {% for product in products %}
                         <tr>
-                            <td>{{ product.name }}</td>
+                            <td>{{ product.attributes.type }} {{ product.name }}</td>
                             <td>{{ product.price }}</td>
                         </tr>
                     {% endfor %}
                     </tbody>
                 </table>
                 <h2>Total price: {{ total_price }}</h2>
+                <td>
+                    <form action="{% url 'buy_cart' %}">
+                        {% csrf_token %}
+                        <button class="btn btn-success buy-btn">Buy cart</button>
+                    </form>
+                </td>
             {% else %}
                 <h2>No products yet</h2>
             {% endif %}

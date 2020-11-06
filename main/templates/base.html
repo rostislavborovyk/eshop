@@ -21,14 +21,22 @@
             <li>
                 <a href="/users" {% if request.path == "/users/" %} class="current"{% endif %}>Users</a>
             </li>
-{#            <li>#}
-{#                <a href="/orders" {% if request.path == "/orders/" %} class="current"{% endif %}>Orders</a>#}
-{#            </li>#}
+            {% if user.is_authenticated %}
+                <li>
+                    <a
+                            href="/orders/bought_products/"
+                            {% if request.path == "/orders/bought_products/" %}
+                            class="current"
+                            {% endif %}
+                    >Bought products</a>
+                </li>
+            {% endif %}
             {% if user.is_authenticated %}
                 <li>
                     <a href="/orders/cart" {% if request.path == "/orders/cart/" %} class="current"{% endif %}>Cart</a>
                 </li>
             {% endif %}
+
         </ul>
         <ul id="nav__right">
             {% if user.is_authenticated %}
