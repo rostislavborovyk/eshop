@@ -1,4 +1,4 @@
-from .services import send_product_page_visit
+from .kafka_services import send_product_page_visit
 
 
 class ActivityTrackingMiddleware:
@@ -8,5 +8,4 @@ class ActivityTrackingMiddleware:
     def __call__(self, request):
         # print("Tracking middleware")
         send_product_page_visit(request)
-        response = self._get_response(request)
-        return response
+        return self._get_response(request)

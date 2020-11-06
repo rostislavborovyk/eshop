@@ -7,7 +7,7 @@ from django.conf import settings
 
 # settings.configure(default_settings=my_settings)
 
-kafka_producer = KafkaProducer(
+_kafka_producer = KafkaProducer(
     bootstrap_servers=settings.KAFKA_SERVERS,
     retries=5
 )
@@ -17,7 +17,7 @@ def send_product_page_visit(request):
     """
     Sends a message via KafkaProducer with id of product
     """
-    kafka_producer.send(
+    _kafka_producer.send(
         settings.KAFKA_PAGE_TRACKING_TOPIC_NAME,
         str(request.path).encode("utf-8"),
     )
@@ -27,7 +27,7 @@ if __name__ == '__main__':
 
     # debug
     while True:
-        kafka_producer.send(
+        _kafka_producer.send(
             "debug",
             b'message',
             b'Hello'

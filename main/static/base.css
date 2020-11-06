@@ -43,4 +43,11 @@
   padding: 50px;
 }
 
+.in-cart-span {
+  background: lightcoral;
+  color: white;
+  padding: 3px;
+  border-radius: 5px;
+}
+
 /*# sourceMappingURL=base.css.map */

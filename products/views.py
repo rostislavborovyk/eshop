@@ -1,12 +1,14 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
+from django.urls import reverse
 from .models import Product
 
-
-from .services.db_services import add_product_to_cart
+from .services.db_services import add_product_to_cart, get_products_with_additional_data, get_all_products, \
+    get_product_with_additional_data
 
 
 def products(request):
-    products = Product.objects.all()
+    # products = get_all_products()
+    products = get_products_with_additional_data(request.user.id)
 
     context = {
         "products": products
@@ -15,13 +17,19 @@ def products(request):
 
 
 def product(request, product_id):
-    product = get_object_or_404(Product, pk=product_id)
+    # product = get_object_or_404(Product, pk=product_id)
+    product = get_product_with_additional_data(request.user.id, product_id)
 
-    # sends a visit of this page to kafka to count products popularity later
-    # send_product_page_visit(product.id)
-    add_product_to_cart(request.user, product)
+    print(product)
     context = {
         "product": product
     }
 
     return render(request, "products/product.html", context)
+
+
+def add_to_cart(request, product_id):
+    product = get_object_or_404(Product, pk=product_id)
+    add_product_to_cart(request.user, product)
+
+    return redirect(reverse("products"))

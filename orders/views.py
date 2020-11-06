@@ -1,8 +1,6 @@
 from django.shortcuts import render
 
-from orders.models import Order
-from orders.utils import _get_orders_with_clients_and_products_data, _get_orders_of_user, get_total_cart_price
-from products.services.mongo_services import get_cart_products
+from .db_services import _get_orders_with_clients_and_products_data, get_total_cart_price, get_cart_products
 
 
 def orders(request):
@@ -11,9 +9,6 @@ def orders(request):
     context = {
         "orders": orders
     }
-    # if request.user.is_authenticated:
-    #     print(request.user)
-    #     user_orders = Order.objects.filter(user=request.user).all()
 
     return render(request, "orders/orders.html", context)
 

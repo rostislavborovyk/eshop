@@ -3,6 +3,8 @@ from decimal import Decimal
 from typing import List
 
 from orders.models import Order
+from products.services.mongo_services import get_products_from_cart
+from django.core import serializers
 
 OrderWithAdditionalData = namedtuple("Order", "username products_names order_price")
 PersonalOrders = namedtuple("PersonalOrders", "products_names order_price")
@@ -42,6 +44,11 @@ def _get_orders_of_user(user) -> List[PersonalOrders]:
         ))
 
     return res
+
+
+def get_cart_products(user_id):
+    data = [product.object for product in serializers.deserialize('python', get_products_from_cart(user_id))]
+    return data
 
 
 def get_total_cart_price(products):
