@@ -1,4 +1,4 @@
-from .services import push_path_to_redis_list
+from .services import send_product_page_visit
 
 
 class ActivityTrackingMiddleware:
@@ -7,6 +7,6 @@ class ActivityTrackingMiddleware:
 
     def __call__(self, request):
         # print("Tracking middleware")
-        push_path_to_redis_list(request)
+        send_product_page_visit(request)
         response = self._get_response(request)
         return response

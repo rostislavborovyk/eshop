@@ -2,7 +2,6 @@ from django.shortcuts import render, get_object_or_404
 from .models import Product
 
 
-# from .services.kafka_producer import send_product_page_visit
 from .services.db_services import add_product_to_cart
 
 

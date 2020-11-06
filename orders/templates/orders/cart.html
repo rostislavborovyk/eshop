@@ -6,22 +6,26 @@
     <div class="container">
         <div class="container__list">
             <h1>Products cart</h1>
-            <table class="table table-bordered">
-                <thead>
-                <tr>
-                    <th scope="col">Product name</th>
-                    <th scope="col">Price</th>
-                </tr>
-                </thead>
-                <tbody>
-                {% for product in products %}
+            {% if products|length > 0 %}
+                <table class="table table-bordered">
+                    <thead>
                     <tr>
-                        <td>{{ product.product_name }}</td>
-                        <td>{{ product.price }}</td>
+                        <th scope="col">Product name</th>
+                        <th scope="col">Price</th>
                     </tr>
-                {% endfor %}
-                </tbody>
-            </table>
-            <h2>Total price: {{ total_price }}</h2>
+                    </thead>
+                    <tbody>
+                    {% for product in products %}
+                        <tr>
+                            <td>{{ product.product_name }}</td>
+                            <td>{{ product.price }}</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+                <h2>Total price: {{ total_price }}</h2>
+            {% else %}
+                <h2>No products yet</h2>
+            {% endif %}
         </div>
     </div>{% endblock %}

@@ -1,6 +1,0 @@
-Visited product with id 8
-Visited product with id 1
-Visited product with id 3
-Visited product with id 5
-Visited product with id 4
-Visited product with id 8
