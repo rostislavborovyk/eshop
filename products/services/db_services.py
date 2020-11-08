@@ -18,7 +18,6 @@ def add_product_to_cart(user, product) -> None:
     # converting decimal field into str manually
     serialized["fields"]["price"] = str(serialized["fields"]["price"])
     # serialized["user_id"] = user.id
-    print(serialized)
     insert_data_to_mongo_cart(serialized, user.id)
 
 

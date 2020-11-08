@@ -18,7 +18,7 @@
                 {% for product in products %}
                     {#                        "id name price type processor is_in_cart",#}
                     <tr>
-                        <td><a href="/products/{{ product.id }}">{{ product.name }}</a></td>
+                        <td><a href="/products/{{ product.id }}" class="product-link">{{ product.name }}</a></td>
                         <td>{{ product.price }}</td>
                         <td>{{ product.type }}</td>
                         <td>{{ product.processor }}</td>

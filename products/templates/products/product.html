@@ -11,8 +11,8 @@
         </div>
         <div class="product__inner-container">
             <h1>Specifications</h1>
-            <h2>Type: {{ product.attributes.type }}</h2>
-            <h2>Processor: {{ product.attributes.processor }}</h2>
+            <h2>Type: {{ product.type }}</h2>
+            <h2>Processor: {{ product.processor }}</h2>
         </div>
         {% if user.is_authenticated %}
             <td>

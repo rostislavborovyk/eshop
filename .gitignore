@@ -3,3 +3,5 @@ __pycache__
 .idea/
 db.sqlite3
 .env
+load_test/node_modules
+load_test/cypress/videos

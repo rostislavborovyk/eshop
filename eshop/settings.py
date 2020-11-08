@@ -141,6 +141,9 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 LOGIN_REDIRECT_URL = "/users"
 LOGOUT_REDIRECT_URL = "/users"
 
+MONGO_CONNECTION_STRING = f"mongodb+srv://user:verystrongpassword@testdjango.qpa7w.mongodb.net/" \
+                          f"db?retryWrites=true&w=majority"
+
 KAFKA_SERVERS = os.getenv('KAFKA_SERVERS', '0.0.0.0:9092')
 KAFKA_PAGE_TRACKING_TOPIC_NAME = "visited_urls"
 

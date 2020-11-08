@@ -22,7 +22,6 @@ def product(request, product_id):
     # product = get_object_or_404(Product, pk=product_id)
     product = get_product_with_additional_data(request.user.id, product_id)
 
-    print(product)
     context = {
         "product": product
     }

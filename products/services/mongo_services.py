@@ -1,18 +1,10 @@
-from collections import namedtuple
-from typing import List
-
+from django.conf import settings
 import pymongo
-
-# todo move config values to settings
-p = "verystrongpassword"
 
 db_name = "db"
 collection_name = "products_cart"
 
-MONGO_CONNECTION_STRING = f"mongodb+srv://user:{p}@testdjango.qpa7w.mongodb.net/" \
-                          f"db?retryWrites=true&w=majority"
-
-mongo_cluster = pymongo.MongoClient(MONGO_CONNECTION_STRING)
+mongo_cluster = pymongo.MongoClient(settings.MONGO_CONNECTION_STRING)
 db = mongo_cluster[db_name]
 _products_cart_collection = db[collection_name]
 
