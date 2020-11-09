@@ -10,7 +10,7 @@
 - With each transition to product page, kafka producer sends a message with current url
 to 'requests' topic, kafka consumer retrieves messages and writes it to redis every
 N cycles
-- Load tests with cypress 
+- Load tests with cypress and molotov
 
 ## To run 
  ```sh 
@@ -25,6 +25,10 @@ python manage.py runserver
 # to run kafka consumer
 python kafka_consumer.py
 
-# to run load tests
-bash load_test.sh
+# to run cypress load tests
+bash cypress_load_test.sh
+
+# to run molotov load tests
+bash molotov_load_test.sh
+
 ```
