@@ -4,15 +4,6 @@ from django.urls import reverse
 from .services.db_services import get_total_cart_price, get_cart_products, handle_buying_cart, get_bought_products
 
 
-# def orders(request):
-#     orders = _get_orders_with_clients_and_products_data()
-#
-#     context = {
-#         "orders": orders
-#     }
-#
-#     return render(request, "orders/orders.html", context)
-
 def cart(request):
     products = get_cart_products(request.user.id)
     total_price = get_total_cart_price(products)

@@ -1,12 +1,9 @@
-from django.conf import settings
-import pymongo
+from eshop import mongo_db
 
 db_name = "db"
 collection_name = "products_cart"
 
-mongo_cluster = pymongo.MongoClient(settings.MONGO_CONNECTION_STRING)
-db = mongo_cluster[db_name]
-_products_cart_collection = db[collection_name]
+_products_cart_collection = mongo_db[collection_name]
 
 
 def insert_data_to_mongo_cart(data: dict, user_id: int):

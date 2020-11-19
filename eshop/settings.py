@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'users',
     'orders',
     'products',
+
 ]
 
 MIDDLEWARE = [
@@ -83,12 +84,6 @@ WSGI_APPLICATION = 'eshop.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
@@ -152,3 +147,10 @@ KAFKA_SERVERS = os.getenv('KAFKA_SERVERS', '0.0.0.0:9092')
 KAFKA_PAGE_TRACKING_TOPIC_NAME = "visited_urls"
 
 REDIS_PAGE_TRACKING_LIST_NAME = "visited_urls"
+
+# celery
+CELERY_BROKER_URL = 'redis://localhost:6379/0'
+CELERY_RESULT_BACKEND = 'redis://localhost:6379/0'
+CELERY_ACCEPT_CONTENT = ['application/json']
+CELERY_RESULT_SERIALIZER = 'json'
+CELERY_TASK_SERIALIZER = 'json'

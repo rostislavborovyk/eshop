@@ -1,12 +1,13 @@
 from collections import namedtuple
 
-from products.services.mongo_services import db
+# from products.services.mongo_services import db
+from eshop import mongo_db
 from users.models import User
 from django.shortcuts import get_object_or_404
 
 collection_name = "bought_products"
 
-_bought_products_collection = db[collection_name]
+_bought_products_collection = mongo_db[collection_name]
 
 BoughtProducts = namedtuple(
     "BoughtProducts",
